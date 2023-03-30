@@ -20,7 +20,8 @@
 \usepackage{textcomp}
 \usepackage{xcolor}
 \usepackage{csquotes}
-
+\usepackage{placeins}
+\usepackage{etoolbox}
 \usepackage{IEEEtrantools}
 
 \begin{document}
@@ -91,6 +92,8 @@ Based on the self-organised channel resource allocation principle of the STDMA(S
 \section{Motivation}
 
 The motivation of this project is to answer a question inspired by \cite{Paper_From_Supervisor}. Which is:
+
+\label{Question}
 
 \begin{displayquote}
 \textbf{What will happen if use STDMA for 2D resource sharing?}
@@ -216,8 +219,89 @@ In general, there are many different solutions to the MAPF problem, but \textbf{
 
 \pagebreak
 
+\section{Impact Assessment}
+% 本项目主要是对一种算法的模拟，因此其影响主要为潜在的影响。本项目的主旨在于通过回答一个问题来使读者对MAPF问题有更好的了解。
+The main goal of this project is to help readers gain a better understanding of the MAPF problem by answering a question (see Section \ref{Question}), and the proposed algorithm is mainly based on simulation rather than practical system operation. Therefore, \textbf{the impact of this project is mostly potential rather than immediate}.
+
+% 社会：提升生活质量
+% 环境：通过优化机器人行动来减少能源的消耗
+% 经济：对仓储物流方面的人工工作岗位有影响。同时，又可能产生新的岗位，如
+\vspace{0.5cm}
+\textbf{Positives}:
+
+\begin{itemize}
+    \item Academical Impact: Help readers to get better understanding of MAPF problems and may provide inspiration to developers.
+    \item Improve Production: MAPF could help agents to better navigate and accomplish tasks, improve efficiency, flexibility, and reduce costs.
+    \item Increased Safety: Reduce the accidents and fatalities caused by human error
+    \item Better Energy Efficiency: MAPF algorithms helps the robot swarm to improve their energy efficiency by optimizing its route and reduce idle time. But there is also a risk of increased energy consumption due to the overuse of robots in production processes and accurately estimating the impact of this part is beyond my knowledge and ability. 
+\end{itemize}
 
 
+\textbf{Negatives}:
+
+\begin{itemize}
+    \item Impact on Workforce: Implementation of MAPF algorithms could impact the workforce, potentially leading to job displacement or changes in job.
+    \item Cultural Resistance: Application of MAPF algorithms could face resistance from cultural or social groups who value human labor and human-based decision making.
+    \item Digital Security: Applications of MAPF algorithms (like AGVs) may introduce risks of cyber attack and private data leakage. 
+\end{itemize}
+
+\pagebreak
+
+\section{Risk Register}
+
+% 本项目从风险管理的角度可以这样描述： 我在有ROS2环境的具有普通笔记本电脑等级算力的电脑中，进行算法的模拟与优化。
+From a risk management perspective, your project can be described as:
+\begin{quote}
+    \textbf{I} simulate and optimize \textbf{algorithms} in a \textbf{computer} with normal laptop-level computing power and \textbf{ROS2} environment.
+\end{quote}
+
+% 其中的可能风险由下表表示。对于其中的似然性和影响两栏，用1-4来衡量其等级，1代表最不可能/影响最小，4代表最可能/影响最大。
+\textbf{The possible risks are represented by the table below}. For the likelihood and impact columns, levels 1-4 are used to measure their level, with 1 representing the least likely/least impact and 4 representing the most likely/most impact.
+
+
+\begin{table}[]
+\begin{tabular}{|l|l|l|l|}
+\hline
+Risk                      & Likelihood(A) & Impact(B) & Risk Score(A×B) \\ \hline
+PC Malfunction            & 2             & 4         & 8               \\ \hline
+Underestimated Complexity & 3             & 2         & 6               \\ \hline
+ROS2 Capability           & 2             & 2         & 4               \\ \hline
+Progress Loss             & 1             & 4         & 4               \\ \hline
+\end{tabular}
+\end{table}
+
+\FloatBarrier
+
+\textbf{PC Malfunction}: Due to some mysterious software malfunction, my computer has been performing very unstably. In fact, during the process of writing this proposal, I was forced to reinstall the operating system once. For this risk, I will try my best to solve it before the project enters the full-day stage. At the same time, I will also pay attention to synchronising progress to the cloud, so I could continue my work on shared computer if PC under repairing..
+
+\textbf{Underestimated Complexity}: My understanding of this topic still does not allow me to estimate the true complexity of the problem, and I may have underestimated the difficulty of certain parts when making plans, which may disrupt my plans. For this risk, I will try to arrange the uncertain parts at the end so that other parts do not depend too much on the parts where I am uncertain about the complexity.
+
+\textbf{ROS2 Capability}: It is unclear whether ROS2 can support a certain number of agent simulations. For ROS2, simulating more than 4-5 agents will be more difficult, but the specific performance depends on the project and the programmer, so it cannot be determined at the beginning. For this risk, I will try to simulate large-scale swarms only when necessary to reduce the project’s time consumption. And I will pay attention to performance issues when writing code and try to avoid migrating the project to other platforms due to computing power reasons, because code migration is not part of my research topic.
+
+\textbf{Progress Loss}: A classical, serious but constantly occurring problem for all research projects. For this problem, progress should be saved and cloud synchronization should be kept in mind at all times.
+
+\pagebreak
+\section{Timeline}
+% 项目的时间规划如图1所示，向下的箭头表示不同分解目标间的依赖关系。
+The project's timeline is illustrated in Figure \ref{GanntChart}, where downward arrows indicate the inter-dependencies among different sub-tasks
+
+
+
+\begin{figure}[htbp]
+    \centering
+    \makebox[\textwidth][c]{\includegraphics[width=1.1\textwidth]{Gannt Chart.png}}
+    \caption{Project Gantt Chart.}
+    \label{GanntChart}
+\end{figure} 
+
+Note: The actual available time is slightly longer than 12 weeks.
+
+\pagebreak
+
+
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+
+\section{References}
 
 \bibliographystyle{unsrt}
 \bibliography{sample}
